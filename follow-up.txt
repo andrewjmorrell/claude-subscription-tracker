@@ -1,0 +1,9 @@
+Tighten up the implementation and continue with these rules:
+- inspect existing files before editing
+- preserve package consistency
+- no pseudocode
+- no placeholder TODO implementations
+- no duplicate models in different layers unless justified
+- keep changes incremental
+- after edits, summarize changed files and next steps
+- prioritize compileable, coherent Android code

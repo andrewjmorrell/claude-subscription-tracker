@@ -1,0 +1,16 @@
+Implement the next feature incrementally: Subscription List screen.
+
+Requirements:
+- show all subscriptions
+- search by name
+- filter by category
+- sort by name, amount, and next billing date
+- delete subscription
+- tap item to edit
+
+Tasks:
+1. inspect current related files
+2. update repository/viewmodel/ui as needed
+3. make direct file edits
+4. keep changes minimal and coherent
+5. summarize changed files and what to test

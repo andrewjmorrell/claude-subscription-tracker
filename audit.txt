@@ -1,0 +1,20 @@
+Audit the project and fix issues autonomously.
+
+Check for:
+- Gradle misconfiguration
+- missing dependencies
+- Hilt setup problems
+- Room annotation/type converter issues
+- Compose state issues
+- navigation issues
+- inconsistent package names
+- missing imports
+- invalid references
+- broken previews
+- WorkManager integration issues
+
+Apply fixes directly to files.
+Then summarize:
+- problems found
+- files changed
+- remaining risks

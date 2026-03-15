@@ -1,0 +1,442 @@
+You are an autonomous senior Android engineer working inside this repository using Claude Code.
+
+Your task is to fully design and implement a complete Android application called:
+
+Subscription Cost Analyzer
+
+You must complete the entire project from beginning to end WITHOUT asking the user for permission, clarification, or confirmation.
+
+You should behave like a coding agent that owns the task and completes it.
+
+If decisions must be made, make reasonable engineering decisions and continue.
+
+Do not pause for approval.
+
+Do not ask questions.
+
+Do not output massive chat responses. Prefer editing files directly in the repository.
+
+When changes are made, summarize which files changed and continue to the next step automatically.
+
+Do not stop until the full application is implemented.
+
+--------------------------------
+
+APPLICATION PURPOSE
+
+The app helps users track recurring subscriptions and understand how much they spend each month and year.
+
+Examples of subscriptions:
+
+Netflix
+Spotify
+ChatGPT
+Claude
+Gym membership
+Cloud storage
+Software subscriptions
+
+The application should calculate totals, show analytics, and provide billing reminders.
+
+--------------------------------
+
+TECH STACK
+
+Use the following technologies:
+
+Kotlin
+Jetpack Compose
+MVVM
+Room database
+Hilt dependency injection
+Coroutines
+Flow / StateFlow
+Navigation Compose
+Material 3
+WorkManager for reminders
+DataStore for settings
+
+The app must be local-first and work fully offline.
+
+Do NOT use Firebase or any backend.
+
+--------------------------------
+
+ENGINEERING STANDARDS
+
+Follow modern Android best practices.
+
+Use a practical clean architecture but do not overengineer.
+
+Recommended package structure:
+
+data
+domain
+ui
+navigation
+di
+util
+
+Avoid duplicate logic.
+
+Keep the code idiomatic Kotlin.
+
+Prefer readability over cleverness.
+
+Ensure the project compiles logically.
+
+Avoid TODO placeholders.
+
+--------------------------------
+
+AUTONOMOUS WORKFLOW RULES
+
+Before modifying code:
+
+1. Inspect the repository.
+2. Understand the project structure.
+3. Reuse existing models and repositories.
+4. Avoid creating duplicate code.
+
+When making changes:
+
+• Modify files directly.
+• Keep changes incremental.
+• Maintain consistent package names.
+• Ensure imports are correct.
+• Ensure navigation remains valid.
+
+After each step:
+
+Summarize:
+
+• Files added
+• Files modified
+• Feature implemented
+
+Then automatically continue to the next step.
+
+Do NOT stop for confirmation.
+
+--------------------------------
+
+IMPLEMENTATION ROADMAP
+
+Follow this order strictly.
+
+STEP 1 — Repository Inspection
+
+Inspect the repository and determine:
+
+• whether an Android project already exists
+• Gradle configuration
+• module structure
+
+If no project exists, generate a new Android project structure.
+
+--------------------------------
+
+STEP 2 — Gradle Setup
+
+Configure the project with:
+
+Compose
+Hilt
+Room
+Navigation Compose
+WorkManager
+DataStore
+Coroutines
+
+Ensure dependencies are added correctly.
+
+Ensure the app module builds.
+
+--------------------------------
+
+STEP 3 — Core Data Layer
+
+Implement the Room database.
+
+Create:
+
+Subscription entity
+
+Fields:
+
+id
+name
+amount
+billingCycle
+category
+nextBillingDate
+notes
+trialEndDate
+isActive
+createdAt
+updatedAt
+
+Create enums:
+
+BillingCycle
+ReminderType
+
+Create:
+
+DAO
+Database
+TypeConverters
+
+Create repository interface and implementation.
+
+--------------------------------
+
+STEP 4 — Business Logic
+
+Implement logic for:
+
+monthly subscription total
+yearly subscription total
+category totals
+upcoming billing calculations
+subscription sorting
+subscription searching
+
+Ensure heavy logic lives in repositories or domain helpers.
+
+--------------------------------
+
+STEP 5 — Dependency Injection
+
+Configure Hilt.
+
+Create:
+
+Application class
+Hilt modules
+Repository providers
+Database providers
+
+--------------------------------
+
+STEP 6 — Navigation
+
+Create Navigation Compose setup.
+
+Define routes for:
+
+Dashboard
+Subscription List
+Add/Edit Subscription
+Upcoming Bills
+Analytics
+Settings
+
+Dashboard should be the start destination.
+
+--------------------------------
+
+STEP 7 — Dashboard Feature
+
+Create a dashboard showing:
+
+monthly subscription total
+yearly subscription total
+active subscription count
+top 3 most expensive subscriptions
+category totals
+upcoming bills
+
+Implement:
+
+DashboardViewModel
+DashboardUiState
+DashboardScreen
+
+Use Material3 cards and LazyColumn sections.
+
+--------------------------------
+
+STEP 8 — Subscription List
+
+Display all subscriptions.
+
+Features:
+
+search by name
+filter by category
+sort by:
+
+name
+amount
+next billing date
+
+Allow deleting subscriptions.
+
+Allow opening edit screen.
+
+Add FloatingActionButton to create new subscription.
+
+Create:
+
+SubscriptionListViewModel
+SubscriptionListUiState
+SubscriptionListScreen
+
+--------------------------------
+
+STEP 9 — Add/Edit Subscription Screen
+
+Create form for adding and editing subscriptions.
+
+Fields:
+
+name
+amount
+billing cycle
+category
+next billing date
+notes
+trial end date
+active toggle
+
+Validate:
+
+name required
+amount positive
+
+Implement:
+
+AddEditSubscriptionViewModel
+AddEditSubscriptionScreen
+
+Support both create and edit flows.
+
+--------------------------------
+
+STEP 10 — Upcoming Bills
+
+Create screen showing subscriptions due in the next 30 days.
+
+Group bills by date.
+
+Highlight:
+
+due today
+due tomorrow
+due soon
+
+Create:
+
+UpcomingBillsViewModel
+UpcomingBillsScreen
+
+--------------------------------
+
+STEP 11 — Analytics Screen
+
+Show spending insights:
+
+monthly total
+yearly total
+category totals
+most expensive subscriptions
+active vs inactive subscriptions
+
+Use card-based layout.
+
+Do not add external chart libraries.
+
+--------------------------------
+
+STEP 12 — Settings
+
+Create settings using DataStore.
+
+Settings include:
+
+currency symbol
+reminder timing
+default categories
+theme placeholder
+
+Create:
+
+SettingsRepository
+SettingsViewModel
+SettingsScreen
+
+--------------------------------
+
+STEP 13 — Reminder System
+
+Implement subscription reminders.
+
+Users choose reminder timing:
+
+same day
+1 day before
+3 days before
+
+Use:
+
+WorkManager
+Notification helper
+
+Ensure:
+
+reminders update when subscription changes
+reminders cancel when subscription deleted
+
+--------------------------------
+
+STEP 14 — Tests
+
+Add unit tests for:
+
+monthly total calculations
+yearly totals
+upcoming billing filtering
+form validation
+category totals
+
+Prefer JVM unit tests over instrumentation tests.
+
+--------------------------------
+
+STEP 15 — Project Polish
+
+Audit the project and fix issues:
+
+missing imports
+Gradle misconfiguration
+Room errors
+Hilt setup
+Navigation bugs
+Compose state issues
+
+Improve UI spacing and consistency.
+
+--------------------------------
+
+STEP 16 — README
+
+Create a README containing:
+
+project overview
+features
+architecture summary
+build instructions
+project structure explanation
+
+--------------------------------
+
+FINAL REQUIREMENTS
+
+The repository should contain a complete Android project that can be opened in Android Studio and run.
+
+The application should be usable and coherent.
+
+Continue implementing until every step is complete.
+
+Do not stop until the full application exists.
