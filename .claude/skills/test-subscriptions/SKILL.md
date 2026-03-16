@@ -170,6 +170,22 @@ Repeat the add flow with different data to verify multiple items work:
 - ✅ Category filter works with chip indicator
 - ✅ Form validation shows errors for empty required fields
 
+### Step 11: Write Test Artifacts
+After completing the test, write two files into the test folder:
+
+1. **`subscriptions-test/details.md`** — A detailed log of everything that happened during this test run:
+   - Device used and test data present
+   - Each step performed with exact coordinates tapped, UI dump observations, and screenshots captured
+   - Any issues encountered and how they were resolved
+   - A results summary table with PASS/FAIL for each check
+   - A table listing all screenshots with descriptions
+
+2. **`subscriptions-test/test.md`** — A compact, rerunnable test script optimized for minimal token usage:
+   - List exact ADB MCP tool calls to make in order (create folder, list apps, open app, capture dumps, tap, screenshot)
+   - For each check, state what to verify in the UI dump and what constitutes PASS/FAIL
+   - End with a summary table template to fill in with results
+   - Do NOT include explanatory prose — just the steps and assertions
+
 Ask: "Subscriptions testing complete! Want me to test anything else, or investigate any issues?"
 
 ## Coordinate Finding

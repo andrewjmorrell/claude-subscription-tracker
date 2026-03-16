@@ -109,6 +109,22 @@ If there are enough bills to scroll:
 - ✅ Urgency highlighting (red) for bills due within 3 days
 - ✅ Screen scrolls if content overflows
 
+### Step 8: Write Test Artifacts
+After completing the test, write two files into the test folder:
+
+1. **`upcoming-test/details.md`** — A detailed log of everything that happened during this test run:
+   - Device used and test data present
+   - Each step performed with exact coordinates tapped, UI dump observations, and screenshots captured
+   - Any issues encountered and how they were resolved
+   - A results summary table with PASS/FAIL for each check
+   - A table listing all screenshots with descriptions
+
+2. **`upcoming-test/test.md`** — A compact, rerunnable test script optimized for minimal token usage:
+   - List exact ADB MCP tool calls to make in order (create folder, list apps, open app, capture dumps, tap, screenshot)
+   - For each check, state what to verify in the UI dump and what constitutes PASS/FAIL
+   - End with a summary table template to fill in with results
+   - Do NOT include explanatory prose — just the steps and assertions
+
 Ask: "Upcoming Bills testing complete! Want me to retest anything or move to another tab?"
 
 ## Coordinate Finding
